@@ -10,6 +10,19 @@ export default defineConfig({
     vue(),
     vueDevTools(),
   ],
+  build: {
+    // Production settings
+    minify: 'terser',
+    manifest: true,
+    sourcemap: false
+  },
+  // Base URL configuration
+  base: '/',
+  // Add this if you're getting the specific error
+  define: {
+    'process.env.NODE_ENV': '"production"',
+    __VUE_PROD_DEVTOOLS__: false
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
